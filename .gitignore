@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# IND320: local secrets (never pushed to GitHub)
+secrets_local.py
