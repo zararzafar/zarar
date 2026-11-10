@@ -93,6 +93,28 @@ def _store(key: str):
     st.session_state[key] = st.session_state["_w_" + key]
 
 
+def area_controls():
+    """Sidebar selector for area type and one area, shared by the analysis pages.
+
+    The area type uses the same remembered value as the reservoir pages, so a choice made there
+    is kept here (a global setting). Returns (area_type, area_number).
+    """
+    _remember("area_type", "EL")
+    with st.sidebar:
+        st.header("Area")
+        area_type = st.radio("Type of areas", options=list(AREA_TYPES),
+                             format_func=lambda t: AREA_TYPES[t],
+                             key="_w_area_type", on_change=_store, args=("area_type",))
+        numbers = {"NO": [0], "EL": [1, 2, 3, 4, 5], "VASS": [1, 2, 3]}[area_type]
+        key = f"area_number_{area_type}"
+        _remember(key, numbers[min(2, len(numbers) - 1)])          # default NO3 / VASS3
+        names = area_names()
+        area_number = st.selectbox("Area", options=numbers,
+                                   format_func=lambda n: names.get((area_type, n), f"{area_type}{n}"),
+                                   key="_w_" + key, on_change=_store, args=(key,))
+    return area_type, area_number
+
+
 def controls(with_column: bool = False):
     """Sidebar controls shared by the reservoir pages. Returns (start, end, area_type, column)."""
     months = month_options()

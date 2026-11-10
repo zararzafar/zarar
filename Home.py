@@ -19,6 +19,8 @@ st.write("Use the menu in the sidebar to move between the pages:")
 st.markdown(
     "- **Reservoir table** – one row per area, with a line chart of the chosen value\n"
     "- **Reservoir plot** – lines for each area in the chosen area type and period\n"
+    "- **Reservoir analysis** – STL decomposition and spectrogram of the fill rate\n"
+    "- **Weather quality** – outliers in precipitation (SPC) and temperature anomalies (LOF)\n"
     "- **Cross-border flows** – yearly import/export and daily flows for Norway's connections\n"
     "- **About** – data sources and notes"
 )
