@@ -2,7 +2,7 @@
 
 Project work for IND320 at NMBU, autumn 2026.
 
-- **Streamlit app:** https://zarar.streamlit.app
+- **Streamlit app:** https://zarar-ind320.streamlit.app
 - **Notebook:** [`IND320_part1.ipynb`](IND320_part1.ipynb)
 
 ## Part 1 – Dashboard basics
